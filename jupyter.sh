@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=MY_JOB                  # 사용자의 작업 이름으로 변경
-#SBATCH --partition=gpu6                   # 사용할 파티션 이름으로 변경 필요 -> partition number(gpu1/gpu2/gpu3/gpu4/gpu5/gpu6)
+#SBATCH --partition=gpu6                   # 사용할 파티션 이름으로 변경 필요 -> partition number(gpu1 ~ gpu6)
 #SBATCH --gres=gpu:1                       # 사용할 gpu 수
 #SBATCH --cpus-per-task=1                  # 하나의 태스크가 사용할 CPU 코어 수
 #SBATCH -o ./output/jupyter%j.out          # STDOUT        

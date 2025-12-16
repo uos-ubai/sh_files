@@ -9,7 +9,7 @@
 3. jupyter 사용을 위한 shell 파일(UBAI 제공)을 가져옵니다.
   (1) curl -L "https://raw.githubusercontent.com/uos-ubai/sh_files/main/jupyter_files/jupyter.sh" -o jupyter.sh
   (2) 폴더 내에 jupyter.sh 파일이 저장되어있는 것을 확인합니다.
-  (3) shell 파일을 할당받고자 하는 자원에 맞게 수정합니다. (수정하지 않아도 괜찮습니다.)
+  (3) shell 파일을 할당받고자 하는 자원에 맞게 수정합니다.
 
 4. 작업을 제출합니다.
   (1) sbatch 파일이름.sh

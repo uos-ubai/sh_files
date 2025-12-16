@@ -1,0 +1,33 @@
+# Jupyter Notebook
+1. Jupyter를 설치할 가상환경을 만들어줍니다.
+  (1) conda create -n 가상환경_이름 python=파이썬_버전
+  (2) conda activate 가상환경_이름
+
+2. 가상환경 내 jupyter를 설치해줍니다.
+  (1) pip install ipykernel jupyterlab
+
+3. jupyter 사용을 위한 shell 파일(UBAI 제공)을 가져옵니다.
+  (1) curl -L "https://raw.githubusercontent.com/uos-ubai/sh_files/main/jupyter.sh" -o jupyter.sh
+  (2) 폴더 내에 jupyter.sh 파일이 저장되어있는 것을 확인합니다.
+  (3) shell 파일을 할당받고자 하는 자원에 맞게 수정합니다. (수정하지 않아도 괜찮습니다.)
+
+4. 작업을 제출합니다.
+  (1) sbatch 파일이름.sh
+    a. Ex) sbatch jupyter.sh 
+
+5. Jupyter 접속을 위해 포트포워딩을 진행합니다.
+  (1) 제출한 작업 id의 err 파일을 확인합니다. 
+    a. Ex) 작업 id: 500000
+    b. Ex) 제출한 작업 id의 err 파일명: jupyter500000.err
+  (2) err 파일의 15~20번째 줄에서 아래 핵심 문구를 확인합니다. 
+    a. 노드번호.hpc:8888(또는 8889)/lab?token=접속 비밀번호
+    a. Ex) n001.hpc:8888/lab?token=6234f6b51fbacb00cv5d154da67795794af5ac2b783d85b4
+  (3) 포트포워딩을 진행합니다.
+    (a) PORTS 클릭 -> Forward a Port -> Port에 붙여넣기 후 입력 -> Forwarded Address 내 localhost:8888/8889 확인 -> Open in Browser 클릭(지구본 모양)
+  (4) err 파일에 출력된 token(접속 비밀번호) 값을 복사합니다.
+    a. Ex) 6234f6b51fbacb00cv5d154da67795794af5ac2b783d85b4를 복사합니다.
+    b. Jupyter Browser에서 비밀번호를 요구할 경우 해당 접속 비밀번호를 입력합니다.
+
+6. 사용 종료
+  (1) 사용이 모두 완료된 이후에는 명령어(scancel)를 통해 반드시 작업을 종료시킵니다.
+    a. Ex) scancel 500000

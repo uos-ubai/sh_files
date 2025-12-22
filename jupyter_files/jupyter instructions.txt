@@ -19,9 +19,13 @@
   (1) 제출한 작업 id의 err 파일을 확인합니다. 
     a. Ex) 작업 id: 500000
     b. Ex) 제출한 작업 id의 err 파일명: jupyter500000.err
-  (2) err 파일의 15~20번째 줄에서 아래 문구를 확인합니다. 
+  (2-1) err 파일의 15~20번째 줄에서 아래 문구를 확인합니다. 
     a. 노드번호.hpc:8888(또는 8889)/lab?token=접속 비밀번호
-    a. Ex) n001.hpc:8888/lab?token=6234f6~af5a123
+    b. Ex) n001.hpc:8888/lab?token=6234f6~af5a123
+  (2-2) 또는 terminal에 다음 명령어를 입력하여 확인합니다. 
+    a. grep -RIn --include="제출한 작업 err 파일명" "hpc" . ( .까지 입력합니다.)
+    b. Ex) grep -RIn --include="jupyuter.500000.err" "hpc" .
+    c. 노드번호.hpc:8888(또는 8889)/lab?token=접속 비밀번호    
   (3) 포트포워딩을 진행합니다.
     (a) PORTS 클릭 -> Forward a Port -> Port에 붙여넣기 후 입력 -> Forwarded Address 내 localhost:8888/8889 확인 -> Open in Browser 클릭(지구본 모양)
   (4) err 파일에 출력된 token(접속 비밀번호) 값을 복사합니다.
